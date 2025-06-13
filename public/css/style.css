@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio verticalmente */
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la altura de la ventana */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px; /* Margen superior para centrar verticalmente más abajo */
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: calc(100% - 20px); /* 100% menos el padding */
+    padding: 12px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Esquinas redondeadas */
+    font-size: 1em;
+    box-sizing: border-box; /* Incluir padding en el ancho */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.pay-button {
+    background: linear-gradient(135deg, #2ecc71, #27ae60); /* Degradado de verde */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px; /* Esquinas redondeadas */
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
+    margin-top: 20px;
+}
+
+.pay-button:hover {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(46, 204, 113, 0.5);
+}
+
+.pay-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(46, 204, 113, 0.4);
+}
+
+.warning-text {
+    color: #e67e22;
+    font-weight: 600;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+/* Estilos para mensajes flash */
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.flash-messages li {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.flash-messages li.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-messages li.error { /* Cambiado de 'danger' a 'error' para coincidir con JS */
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-messages li.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* Estilos para páginas de éxito y cancelación */
+.success-title {
+    color: #28a745;
+    font-size: 2.2em;
+}
+
+.success-icon {
+    color: #28a745;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.cancel-title {
+    color: #dc3545;
+    font-size: 2.2em;
+}
+
+.cancel-icon {
+    color: #dc3545;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .pay-button {
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+}

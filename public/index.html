@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integración Khipu Demo (Node.js)</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Demostración de Pago con Khipu (Node.js)</h1>
+        <p>Esta es una implementación sencilla de la API de Pagos de Khipu usando Node.js y Express.js.</p>
+        <p class="warning-text"><strong>¡Importante!</strong> Estás usando el entorno de pruebas <strong>DemoBank</strong> de Khipu, con un límite de pago de <strong>$5.000 CLP</strong>.</p>
+        
+        <!-- Contenedor para mensajes flash -->
+        <div id="flash-messages" class="flash-messages"></div>
+
+        <form action="/create_payment" method="POST" class="payment-form">
+            <div class="form-group">
+                <label for="subject">Descripción del pago:</label>
+                <input type="text" id="subject" name="subject" value="Producto de prueba" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Monto (CLP):</label>
+                <input type="number" id="amount" name="amount" value="1000" min="1" max="5000" step="any" required>
+            </div>
+            <button type="submit" class="pay-button">Pagar con Khipu</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript para mostrar mensajes flash de la URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const message = params.get('message');
+            const type = params.get('type');
+            const flashContainer = document.getElementById('flash-messages');
+
+            if (message && type) {
+                const messageElement = document.createElement('li');
+                messageElement.classList.add(type);
+                messageElement.textContent = message;
+                flashContainer.appendChild(messageElement);
+
+                // Limpiar la URL para que el mensaje no se muestre en futuras cargas
+                const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.replaceState({ path: newUrl }, '', newUrl);
+            }
+        });
+    </script>
+</body>
+</html>
